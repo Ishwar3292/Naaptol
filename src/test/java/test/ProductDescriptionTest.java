@@ -39,9 +39,9 @@ public class ProductDescriptionTest extends BaseTest {
 		ProductResultPage productResultPage=new ProductResultPage(driver);
 		productResultPage.clickOnProduct(0);
 		
-		AddProductfromDescriptionPage addToCartDescription=new AddProductfromDescriptionPage(driver);
-		addToCartDescription.switchToPage(driver, "https://www.naaptol.com/smart-watches/bluetooth-calling-smart-watch-with-neckband-and-mobile-stand-sc6/p/12612081.html");
-		addToCartDescription.clikOnBuyButton();
+		AddProductfromDescriptionPage addToCartDescriptionPage=new AddProductfromDescriptionPage(driver);
+		addToCartDescriptionPage.switchToPage(driver, "https://www.naaptol.com/smart-watches/bluetooth-calling-smart-watch-with-neckband-and-mobile-stand-sc6/p/12612081.html");
+		addToCartDescriptionPage.clikOnBuyButton();
 		
 		
 		

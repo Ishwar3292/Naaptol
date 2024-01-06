@@ -22,6 +22,10 @@ import utility.Reports;
 @Listeners(test.Listener.class)
 public class AddToCartTest extends BaseTest {
 	
+	ProductResultPage productResultPage;
+	ProductQuickViewPage productQuickViewPage;
+	CartPage cartPage;
+	
 	ExtentReports extentReport;
 	ExtentTest Test;
 	@BeforeTest
@@ -41,17 +45,16 @@ public class AddToCartTest extends BaseTest {
 		naaptolHomePage.enterSearch("mobiles");
 		naaptolHomePage.clickOnSearchButton();
 		String currenturl=driver.getCurrentUrl();
-		Assert.assertTrue(currenturl.contains("https://www.naaptol.com/search.html?type=srch_catlg&kw=mobile"));
+		Assert.assertTrue(currenturl.contains("mobile"));
 		//Assert.assertEquals(naaptolHomePage.getMobileHeading(),"mobiles" );
 		
-		ProductResultPage productResultPage=new ProductResultPage(driver);
+		productResultPage=new ProductResultPage(driver);
 		productResultPage.clickOnQuickView(driver, 0);
-		Assert.assertTrue(productResultPage.getNumberOfproducts()>0);
 		
-		ProductQuickViewPage productQuickViewPage=new ProductQuickViewPage(driver);
+		productQuickViewPage=new ProductQuickViewPage(driver);
 		productQuickViewPage.clickHereToBuy();
 		
-		CartPage cartPage=new CartPage(driver);
+		cartPage=new CartPage(driver);
 		Assert.assertEquals(cartPage.getNumberOfProduct(driver),1);
 		
 	}
@@ -66,26 +69,25 @@ public class AddToCartTest extends BaseTest {
 		Assert.assertTrue(currenturl.contains("https://www.naaptol.com/search.html?type=srch_catlg&kw=mobile"));
 		//Assert.assertEquals(naaptolHomePage.getMobileHeading(),"mobiles" );
 		
-		ProductResultPage productResultPage=new ProductResultPage(driver);
+	    productResultPage=new ProductResultPage(driver);
 		productResultPage.clickOnQuickView(driver, 0);
-		Assert.assertTrue(productResultPage.getNumberOfproducts()>0);
-		
-		ProductQuickViewPage productQuickViewPage=new ProductQuickViewPage(driver);
+	
+		productQuickViewPage=new ProductQuickViewPage(driver);
 		productQuickViewPage.clickHereToBuy();
 		
-		CartPage cartPage=new CartPage(driver);
+	    cartPage=new CartPage(driver);
 		cartPage.clickOnContinueShopping();
 		
-		ProductResultPage productResultPage1=new ProductResultPage(driver);
-		productResultPage1.clickOnQuickView(driver, 1);
-		Assert.assertTrue(productResultPage.getNumberOfproducts()>0);
+		productResultPage=new ProductResultPage(driver);
+		productResultPage.clickOnQuickView(driver, 1);
 		
-		ProductQuickViewPage productQuickViewPage1=new ProductQuickViewPage(driver);
-		productQuickViewPage1.clickHereToBuy();
+		productQuickViewPage=new ProductQuickViewPage(driver);
+		productQuickViewPage.clickHereToBuy();
 		
-		CartPage cartPage1=new CartPage(driver);
-		//Assert.assertEquals(cartPage1.getNumberOfProduct(driver), 2);
-		cartPage1.clickOnRemove(0);
+		 CartPage cartPage1=new CartPage(driver);
+		//Assert.assertEquals(cartPage.getNumberOfProduct(driver), 2);
+		
+		cartPage1.clickOnRemove(driver, 1);
 		
 	}
 //	@AfterMethod

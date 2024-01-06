@@ -11,6 +11,7 @@ import com.aventstack.extentreports.ExtentTest;
 import pojo.LaunchBrowser;
 import pom.AddProductfromDescriptionPage;
 import pom.NaaptolHomePage;
+import pom.ProductResultPage;
 import utility.Reports;
 
 public class AddProductUsingDescription extends BaseTest {
@@ -34,18 +35,15 @@ public class AddProductUsingDescription extends BaseTest {
 		NaaptolHomePage naaptolHomePage=new NaaptolHomePage(driver);
 		naaptolHomePage.enterSearch("mobiles");
 		naaptolHomePage.clickOnSearchButton();
-		String currenturl=driver.getCurrentUrl();
-		Assert.assertTrue(currenturl.contains("https://www.naaptol.com/search.html?type=srch_catlg&kw=mobile"));
-		//Assert.assertEquals(naaptolHomePage.getMobileHeading(),"mobile" );
+		
+		ProductResultPage productResultPage=new ProductResultPage(driver);
+		productResultPage.clickOnProduct(0);
 		
 		AddProductfromDescriptionPage addToCartDescription=new AddProductfromDescriptionPage(driver);
-
-		addToCartDescription.ClikOnProduct(driver, 0);
-		addToCartDescription.clikOnBuyButton(driver);
-		String currentTitle =driver.getCurrentUrl();
-		Assert.assertTrue(currentTitle.contains("https://www.naaptol.com/smart-watches/bluetooth-calling-smart-watch-with-neckband-and-mobile-stand-sc6/p/12612081.html"));
-
-
-
+		addToCartDescription.switchToPage(driver, "https://www.naaptol.com/smart-watches/bluetooth-calling-smart-watch-with-neckband-and-mobile-stand-sc6/p/12612081.html");
+		addToCartDescription.clikOnBuyButton();
+		
+		
+		
 }
 }

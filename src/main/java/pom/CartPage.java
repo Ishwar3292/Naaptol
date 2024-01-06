@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class CartPage {
+public class CartPage extends BasePage {
 	
 	@FindBy (xpath= "//div[@id='cartItems']")private List<WebElement> products;
 	@FindBy (xpath= "(//a[@class='red_button2'])[1]")private WebElement proceedToCheckout;
@@ -32,7 +32,9 @@ public class CartPage {
 		continueShopping.click();
 	}
 	
-	public void clickOnRemove(int index) {
+	public void clickOnRemove(WebDriver driver,int index) {
+		WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(5000));
+		wait.until(ExpectedConditions.visibilityOf(proceedToCheckout));
 		remove.get(index).click();
 		}
 	}

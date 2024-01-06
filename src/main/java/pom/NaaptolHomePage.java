@@ -8,7 +8,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class NaaptolHomePage {
+public class NaaptolHomePage extends BasePage{
 	
 	@FindBy (xpath= "//a[@id='login-panel-link']") private WebElement login;
 	@FindBy (xpath= "//a[text()='Track Order']") private WebElement trackOrder;

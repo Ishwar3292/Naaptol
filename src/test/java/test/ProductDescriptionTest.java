@@ -14,7 +14,7 @@ import pom.NaaptolHomePage;
 import pom.ProductResultPage;
 import utility.Reports;
 
-public class AddProductUsingDescription extends BaseTest {
+public class ProductDescriptionTest extends BaseTest {
 	
 	ExtentReports extentReport;
 	ExtentTest Test;

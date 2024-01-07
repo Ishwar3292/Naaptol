@@ -68,7 +68,6 @@ public class AddToCartTest extends BaseTest {
 		naaptolHomePage.clickOnSearchButton();
 		String currenturl=driver.getCurrentUrl();
 		Assert.assertTrue(currenturl.contains("https://www.naaptol.com/search.html?type=srch_catlg&kw=mobile"));
-		//Assert.assertEquals(naaptolHomePage.getMobileHeading(),"mobiles" );
 		
 	    productResultPage=new ProductResultPage(driver);
 		productResultPage.clickOnQuickView(driver, 0);
@@ -79,41 +78,41 @@ public class AddToCartTest extends BaseTest {
 	    cartPage=new CartPage(driver);
 		cartPage.clickOnContinueShopping(driver);
 		
-		productResultPage=new ProductResultPage(driver);
 		productResultPage.clickOnQuickView(driver, 1);
 		
-		productQuickViewPage=new ProductQuickViewPage(driver);
 		productQuickViewPage.clickHereToBuy();
 		
-		 CartPage cartPage1=new CartPage(driver);
+		cartPage=new CartPage(driver);
 		//Assert.assertEquals(cartPage.getNumberOfProduct(driver), 2);
+		cartPage.clickOnRemove(driver, 1);
+		cartPage.clickOnRemove(driver, 0);
 		
 		
 		
 	}
-//	@AfterMethod
-//	public void addTestStatus(ITestResult result) {
-//		
-//		if(result.getStatus()==ITestResult.SUCCESS) {
-//			
-//			Test.log(Status.PASS, result.getName());
-//		}
-//		else if(result.getStatus()==ITestResult.FAILURE) {
-//			
-//			Test.log(Status.FAIL, result.getName());
-//		}
-//		else if(result.getStatus()==ITestResult.SKIP) {
-//			
-//			Test.log(Status.SKIP, result.getName());
-//		}
-//    
-//	}
-//	
-//	 @AfterTest
-//     public void publishReports() {
-//
-//    	 extentReport.flush();
-//        }
-//	
+	@AfterMethod
+	public void addTestStatus(ITestResult result) {
+		
+		if(result.getStatus()==ITestResult.SUCCESS) {
+			
+			Test.log(Status.PASS, result.getName());
+		}
+		else if(result.getStatus()==ITestResult.FAILURE) {
+			
+			Test.log(Status.FAIL, result.getName());
+		}
+		else if(result.getStatus()==ITestResult.SKIP) {
+			
+			Test.log(Status.SKIP, result.getName());
+		}
+    
+	}
+	
+	 @AfterTest
+     public void publishReports() {
+
+    	 extentReport.flush();
+        }
+	
 
 }

@@ -2,39 +2,20 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-01-06T19:55:04 IST" name="Default suite" finished-at="2024-01-06T19:55:21 IST" duration-ms="16897">
+  <suite started-at="2024-01-07T17:59:49 IST" name="Default suite" finished-at="2024-01-07T18:00:07 IST" duration-ms="18570">
     <groups>
     </groups>
-    <test started-at="2024-01-06T19:55:04 IST" name="Default test" finished-at="2024-01-06T19:55:21 IST" duration-ms="16897">
-      <class name="test.ProductDescriptionTest">
-        <test-method is-config="true" signature="configureReports()[pri:0, instance:test.ProductDescriptionTest@7b98f307]" started-at="2024-01-06T19:55:04 IST" name="configureReports" finished-at="2024-01-06T19:55:04 IST" duration-ms="218" status="PASS">
+    <test started-at="2024-01-07T17:59:49 IST" name="Default test" finished-at="2024-01-07T18:00:07 IST" duration-ms="18570">
+      <class name="test.PraticeTest">
+        <test-method is-config="true" signature="openChrome()[pri:0, instance:test.PraticeTest@293a5bf6]" started-at="2024-01-07T17:59:49 IST" name="openChrome" finished-at="2024-01-07T17:59:58 IST" duration-ms="9736" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- configureReports -->
-        <test-method is-config="true" signature="openApplication()[pri:0, instance:test.ProductDescriptionTest@7b98f307]" started-at="2024-01-06T19:55:04 IST" name="openApplication" finished-at="2024-01-06T19:55:15 IST" duration-ms="11045" status="PASS">
+        </test-method> <!-- openChrome -->
+        <test-method signature="searchProduct()[pri:0, instance:test.PraticeTest@293a5bf6]" started-at="2024-01-07T17:59:58 IST" name="searchProduct" finished-at="2024-01-07T18:00:07 IST" duration-ms="8794" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- openApplication -->
-        <test-method signature="verifyIfUserIsAbleToAddProductToCartUsingDescription()[pri:0, instance:test.ProductDescriptionTest@7b98f307]" started-at="2024-01-06T19:55:15 IST" name="verifyIfUserIsAbleToAddProductToCartUsingDescription" finished-at="2024-01-06T19:55:18 IST" duration-ms="2983" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyIfUserIsAbleToAddProductToCartUsingDescription -->
-        <test-method is-config="true" signature="addTestStatus(org.testng.ITestResult)[pri:0, instance:test.ProductDescriptionTest@7b98f307]" started-at="2024-01-06T19:55:18 IST" name="addTestStatus" finished-at="2024-01-06T19:55:18 IST" duration-ms="5" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=verifyIfUserIsAbleToAddProductToCartUsingDescription status=SUCCESS method=ProductDescriptionTest.verifyIfUserIsAbleToAddProductToCartUsingDescription()[pri:0, instance:test.ProductDescriptionTest@7b98f307] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- addTestStatus -->
-        <test-method is-config="true" signature="publishReports()[pri:0, instance:test.ProductDescriptionTest@7b98f307]" started-at="2024-01-06T19:55:18 IST" name="publishReports" finished-at="2024-01-06T19:55:21 IST" duration-ms="2608" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- publishReports -->
-      </class> <!-- test.ProductDescriptionTest -->
+        </test-method> <!-- searchProduct -->
+      </class> <!-- test.PraticeTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

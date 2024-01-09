@@ -2,24 +2,24 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-01-07T18:11:18 IST" name="Default suite" finished-at="2024-01-07T18:11:37 IST" duration-ms="18120">
+  <suite started-at="2024-01-07T18:17:21 IST" name="Default suite" finished-at="2024-01-07T18:17:36 IST" duration-ms="15268">
     <groups>
     </groups>
-    <test started-at="2024-01-07T18:11:18 IST" name="Default test" finished-at="2024-01-07T18:11:37 IST" duration-ms="18120">
+    <test started-at="2024-01-07T18:17:21 IST" name="Default test" finished-at="2024-01-07T18:17:36 IST" duration-ms="15268">
       <class name="test.AddToCartTest">
-        <test-method is-config="true" signature="configureReports()[pri:0, instance:test.AddToCartTest@3e694b3f]" started-at="2024-01-07T18:11:18 IST" name="configureReports" finished-at="2024-01-07T18:11:19 IST" duration-ms="204" status="PASS">
+        <test-method is-config="true" signature="configureReports()[pri:0, instance:test.AddToCartTest@3e694b3f]" started-at="2024-01-07T18:17:21 IST" name="configureReports" finished-at="2024-01-07T18:17:21 IST" duration-ms="220" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- configureReports -->
-        <test-method is-config="true" signature="openApplication()[pri:0, instance:test.AddToCartTest@3e694b3f]" started-at="2024-01-07T18:11:19 IST" name="openApplication" finished-at="2024-01-07T18:11:30 IST" duration-ms="11435" status="PASS">
+        <test-method is-config="true" signature="openApplication()[pri:0, instance:test.AddToCartTest@3e694b3f]" started-at="2024-01-07T18:17:21 IST" name="openApplication" finished-at="2024-01-07T18:17:31 IST" duration-ms="9786" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- openApplication -->
-        <test-method signature="verifyIfUserIsAbleToAddMultipleProductToCartUsingQuickViewOption()[pri:2, instance:test.AddToCartTest@3e694b3f]" started-at="2024-01-07T18:11:30 IST" name="verifyIfUserIsAbleToAddMultipleProductToCartUsingQuickViewOption" finished-at="2024-01-07T18:11:35 IST" duration-ms="5235" status="PASS">
+        <test-method signature="verifyIfUserIsAbleToAddMultipleProductToCartUsingQuickViewOption()[pri:2, instance:test.AddToCartTest@3e694b3f]" started-at="2024-01-07T18:17:31 IST" name="verifyIfUserIsAbleToAddMultipleProductToCartUsingQuickViewOption" finished-at="2024-01-07T18:17:36 IST" duration-ms="4981" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyIfUserIsAbleToAddMultipleProductToCartUsingQuickViewOption -->
-        <test-method is-config="true" signature="addTestStatus(org.testng.ITestResult)[pri:0, instance:test.AddToCartTest@3e694b3f]" started-at="2024-01-07T18:11:35 IST" name="addTestStatus" finished-at="2024-01-07T18:11:35 IST" duration-ms="5" status="PASS">
+        <test-method is-config="true" signature="addTestStatus(org.testng.ITestResult)[pri:0, instance:test.AddToCartTest@3e694b3f]" started-at="2024-01-07T18:17:36 IST" name="addTestStatus" finished-at="2024-01-07T18:17:36 IST" duration-ms="4" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -30,7 +30,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- addTestStatus -->
-        <test-method is-config="true" signature="publishReports()[pri:0, instance:test.AddToCartTest@3e694b3f]" started-at="2024-01-07T18:11:35 IST" name="publishReports" finished-at="2024-01-07T18:11:37 IST" duration-ms="1208" status="PASS">
+        <test-method is-config="true" signature="publishReports()[pri:0, instance:test.AddToCartTest@3e694b3f]" started-at="2024-01-07T18:17:36 IST" name="publishReports" finished-at="2024-01-07T18:17:36 IST" duration-ms="244" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- publishReports -->

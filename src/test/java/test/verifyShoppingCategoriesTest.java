@@ -7,6 +7,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Listeners;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.aventstack.extentreports.ExtentReports;
@@ -14,10 +15,11 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 
 import pojo.LaunchBrowser;
+import pojo.LaunchBrowser1;
 import pom.NaaptolHomePage;
 import utility.Reports;
 @Listeners(test.Listener.class)
-public class verifyShoppingCategoriesTest extends BaseTest {
+public class VerifyShoppingCategoriesTest extends BaseTest {
 	
 	ExtentReports extentReport;
 	ExtentTest Test;
@@ -28,8 +30,16 @@ public class verifyShoppingCategoriesTest extends BaseTest {
 	
 	@BeforeMethod
 	public void openApplication() {
-		driver=LaunchBrowser.chrome();
+		driver=LaunchBrowser1.Chrome();
+		
 	}
+//	 @Parameters({"browser"})
+//	 @BeforeMethod
+//	 public void openChrome(String browser) {
+//
+//	  driver=LaunchBrowser.browser(browser);
+//		}
+
 	
 	@Test
 	public void verifyIfUserIsAbleToAccessShoppingCategories() {

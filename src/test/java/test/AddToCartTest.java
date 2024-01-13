@@ -7,6 +7,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Listeners;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.aventstack.extentreports.ExtentReports;
@@ -14,6 +15,7 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 
 import pojo.LaunchBrowser;
+import pojo.LaunchBrowser1;
 import pom.CartPage;
 import pom.NaaptolHomePage;
 import pom.ProductQuickViewPage;
@@ -28,6 +30,7 @@ public class AddToCartTest extends BaseTest {
 	
 	ExtentReports extentReport;
 	ExtentTest Test;
+	
 	@BeforeTest
 	public void configureReports() {
 		extentReport=Reports.generateReport();
@@ -35,18 +38,23 @@ public class AddToCartTest extends BaseTest {
 	
 	@BeforeMethod
 	public void openApplication() {
-		driver=LaunchBrowser.chrome();
+		driver=LaunchBrowser1.Chrome();
+		
 	}
+//	@Parameters({"browser"})
+//	@BeforeMethod
+//	public void openApplication(String browser) {
+//		driver=LaunchBrowser.browser(browser);
+//	}
 	
 	@Test(priority=1)
 	public void verifyIfUserIsAbleToAddProductToCartUsingQuickViewOption() {
-		Test=extentReport.createTest("verifyIfUserIsAbleToAddProductToCartUsingQuickViewOption()");
+		Test=extentReport.createTest("verifyIfUserIsAbleToAddProductToCartUsingQuickViewOption");
 		NaaptolHomePage naaptolHomePage=new NaaptolHomePage(driver);
 		naaptolHomePage.enterSearch("mobiles");
 		naaptolHomePage.clickOnSearchButton();
 		String currenturl=driver.getCurrentUrl();
 		Assert.assertTrue(currenturl.contains("mobile"));
-		//Assert.assertEquals(naaptolHomePage.getMobileHeading(),"mobiles" );
 		
 		productResultPage=new ProductResultPage(driver);
 		productResultPage.clickOnQuickView(driver, 0);
@@ -55,19 +63,18 @@ public class AddToCartTest extends BaseTest {
 		productQuickViewPage.clickHereToBuy();
 		
 		cartPage=new CartPage(driver);
-		//cartPage.clickOnRemove();
 		Assert.assertEquals(cartPage.getNumberOfProduct(driver),1);
 		
 	}
 	
 	@Test(priority=2)
 	public void verifyIfUserIsAbleToAddMultipleProductToCartUsingQuickViewOption() throws InterruptedException {
-		Test=extentReport.createTest("verifyIfUserIsAbleToAddMultipleProductToCartUsingQuickViewOption()");
+		Test=extentReport.createTest("verifyIfUserIsAbleToAddMultipleProductToCartUsingQuickViewOption");
 		NaaptolHomePage naaptolHomePage=new NaaptolHomePage(driver);
-		naaptolHomePage.enterSearch("mobiles");
+		naaptolHomePage.enterSearch("cooker");
 		naaptolHomePage.clickOnSearchButton();
 		String currenturl=driver.getCurrentUrl();
-		Assert.assertTrue(currenturl.contains("https://www.naaptol.com/search.html?type=srch_catlg&kw=mobile"));
+		Assert.assertTrue(currenturl.contains("cooker"));
 		
 	    productResultPage=new ProductResultPage(driver);
 		productResultPage.clickOnQuickView(driver, 0);
@@ -83,7 +90,6 @@ public class AddToCartTest extends BaseTest {
 		productQuickViewPage.clickHereToBuy();
 		
 		cartPage=new CartPage(driver);
-		//Assert.assertEquals(cartPage.getNumberOfProduct(driver), 2);
 		cartPage.clickOnRemove(driver, 1);
 		cartPage.clickOnRemove(driver, 0);
 		

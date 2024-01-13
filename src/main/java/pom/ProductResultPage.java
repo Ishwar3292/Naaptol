@@ -31,5 +31,6 @@ public class ProductResultPage extends BasePage {
 	public void clickOnProduct(int product) {
 		products.get(product).click();
 	}
-
+	
+	
 }

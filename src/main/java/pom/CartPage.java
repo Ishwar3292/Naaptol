@@ -2,7 +2,6 @@ package pom;
 
 import java.time.Duration;
 import java.util.List;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -12,16 +11,21 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import freemarker.core.JavaScriptCFormat;
 
 public class CartPage extends BasePage {
 
-	@FindBy(xpath = "//div[@id='cartItems']")private List<WebElement> products;
-	@FindBy(xpath = "(//a[@class='red_button2'])[1]")private WebElement proceedToCheckout;
-	@FindBy(xpath = "(//a[@onclick='cart.continueShopping()'])[1]")private WebElement continueShopping;
-	@FindBy(xpath = "//a[text()='Remove']")private List<WebElement> remove;
-	@FindBy(xpath = "//ul[@id='cartData']")private WebElement removeButton;
+	@FindBy (xpath = "//div[@id='cartItems']")private List<WebElement> products;
+	@FindBy (xpath = "(//a[@class='red_button2'])[1]")private WebElement proceedToCheckout;
+	@FindBy (xpath = "(//a[@onclick='cart.continueShopping()'])[1]")private WebElement continueShopping;
+	@FindBy (xpath = "//a[text()='Remove']")private List<WebElement> remove;
+	@FindBy (xpath = "//ul[@id='cartData']")private WebElement removeButton;
+	@FindBy (xpath = "//ul[@id='cartData']//h2//a")private List<WebElement> productName;
+	@FindBy (xpath = "//ul[@id='cartData']//li[3]")private List<WebElement> unitPrice;
+	@FindBy (xpath = "//ul[@id='cartData']//li[4]")private List<WebElement> shippingPrice;
+	@FindBy (xpath = "//ul[@id='cartData']//li[5]")private List<WebElement> orderAmount;
+	@FindBy (xpath = "(//ul[@id='cartTotal']//label)[1]") private WebElement cartAmount;
+	
 	
 
 	public CartPage(WebDriver driver) {
@@ -32,6 +36,10 @@ public class CartPage extends BasePage {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5000));
 		wait.until(ExpectedConditions.visibilityOf(proceedToCheckout));
 		return products.size();
+	}
+	
+	public void clickOnProceedToCheckout() {
+		proceedToCheckout.click();
 	}
 
 	public void clickOnContinueShopping(WebDriver driver)  {
@@ -45,25 +53,34 @@ public class CartPage extends BasePage {
 		remove.get(index).click();
 		
 		}
-//	public void clickOnRemove(WebDriver driver) throws InterruptedException {
-//				
-//		try {
-//			Thread.sleep(1000);
-//			WebElement a = driver.findElement(By.xpath("//span[@class='font-bold-imp']"));
-//			System.out.println(a.getText());
-//			String ab = a.getText().toString().replace("(", "").replace(")", "");
-//			System.out.println(ab);
-//			int y = Integer.parseInt(ab);
-//			int number = y;
-//		
-//			for (int i = 0; i <= number - 1; i++) {
-//				Thread.sleep(1000);
-//				WebElement b = driver.findElement(By.xpath("(//a[text()='Remove'])[1]"));
-//				Thread.sleep(1000);
-//				b.click();
-//			}
-//		} catch (Exception e) {
-//
-//		}
-//      }
+	
+	public String getProductName(int index) {
+		
+		return productName.get(index).getText();
+	}
+	public double getUnitPrice(int index) {
+	return	Double.parseDouble(unitPrice.get(index).getText().substring(3));
+	}
+	
+	public double getShippingPrice(int index) {
+		return Double.parseDouble(shippingPrice.get(index).getText().substring(3));
+	}
+	
+	public double getOrderAmount(WebDriver driver,int index) throws InterruptedException  {
+		WebDriverWait wait=new WebDriverWait(driver, Duration.ofMillis(5000));
+		wait.until(ExpectedConditions.visibilityOf(cartAmount));
+//		Thread.sleep(2000);
+		return Double.parseDouble(orderAmount.get(index).getText());
+	}
+	
+	public double getCartAmount() {
+		// Double.parseDouble(cartAmount.getText().substring(3));
+		String a=cartAmount.getText().substring(3).replace(",", "");
+		return Double.parseDouble(a);
+	}
+		
+	
 }
+
+
+

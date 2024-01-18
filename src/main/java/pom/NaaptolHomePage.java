@@ -26,17 +26,21 @@ public class NaaptolHomePage extends BasePage{
 	@FindBy (xpath= "(//a[@id='cart-panel-link'])[2]") private WebElement cart;
 	@FindBy (xpath= "//input[@id='registration-basic-panel-mobile']")private WebElement mobileNumber;
 	@FindBy (xpath= "//input[@id='registration-basic-panel-submit']")private WebElement continueButton;
-	@FindBy (xpath= "//div[@class='inputCompo']//input[@id='gc-registration-otp-panel-submit']")private WebElement submit;
+	@FindBy (xpath= "(//input[@type='button'])[2]")private WebElement submit;
+	@FindBy (xpath= "//a[@id='cancelOrder']")private WebElement cancelOrder;
 	
 	public NaaptolHomePage(WebDriver driver) {
 		PageFactory.initElements(driver, this);
 	}
 	
-	public void clickOnLogin() {
+	public void clickOnLogin(WebDriver driver) throws InterruptedException {
+		WebDriverWait wait=new WebDriverWait(driver, Duration.ofMillis(2));
+		wait.until(ExpectedConditions.visibilityOf(login));
 		login.click();
 	}
 	
-	public void clickOnTrackorder() {
+	public void clickOnTrackorder() throws InterruptedException {
+		Thread.sleep(3000);
 		trackOrder.click();
 	}
 	public void clickOnShoppingCategories() {
@@ -58,6 +62,7 @@ public class NaaptolHomePage extends BasePage{
 	}
 	
 	public void enterSearch(String product) {
+		
 		search.sendKeys(product);
 	}
 	public void clickOnSearchButton() {
@@ -75,12 +80,16 @@ public class NaaptolHomePage extends BasePage{
 		continueButton.click();
 	}
 	
-	public void clickOnSubmit(WebDriver driver) throws InterruptedException {
-		Thread.sleep(30000);
-		WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(10));
-		wait.until(ExpectedConditions.visibilityOf(submit));
+	public void clickOnSubmit() throws InterruptedException {
+		Thread.sleep(50000);
 		submit.click();
-		
+		Thread.sleep(3000);	
+	}
+	
+	public void clickOnCancelOrder(WebDriver driver) {
+		cancelOrder.click();
+		Alert a=driver.switchTo().alert();
+		a.accept();
 	}
 	
 }

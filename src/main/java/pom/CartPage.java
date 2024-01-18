@@ -59,24 +59,24 @@ public class CartPage extends BasePage {
 		return productName.get(index).getText();
 	}
 	public double getUnitPrice(int index) {
-	return	Double.parseDouble(unitPrice.get(index).getText().substring(3));
+	return	Double.parseDouble(unitPrice.get(index).getText().substring(3).replace(",", ""));
 	}
 	
 	public double getShippingPrice(int index) {
-		return Double.parseDouble(shippingPrice.get(index).getText().substring(3));
+		return Double.parseDouble(shippingPrice.get(index).getText().substring(3).replace(",", ""));
 	}
 	
 	public double getOrderAmount(WebDriver driver,int index) throws InterruptedException  {
 		WebDriverWait wait=new WebDriverWait(driver, Duration.ofMillis(5000));
 		wait.until(ExpectedConditions.visibilityOf(cartAmount));
 //		Thread.sleep(2000);
-		return Double.parseDouble(orderAmount.get(index).getText());
+		return Double.parseDouble(orderAmount.get(index).getText().replace(",", ""));
 	}
 	
 	public double getCartAmount() {
-		// Double.parseDouble(cartAmount.getText().substring(3));
-		String a=cartAmount.getText().substring(3).replace(",", "");
-		return Double.parseDouble(a);
+		return Double.parseDouble(cartAmount.getText().substring(3).replace(",", ""));
+//		String a=cartAmount.getText().substring(3).replace(",", "");
+//		return Double.parseDouble(a);
 	}
 		
 	
